@@ -73,3 +73,12 @@ Feel free to contribute to the project by opening issues or pull requests.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+
+
+## Author
+
+👤 **Aras Güngöre**
+
+- LinkedIn: [@arasgungore](https://www.linkedin.com/in/arasgungore)
+- GitHub: [@arasgungore](https://github.com/arasgungore)
