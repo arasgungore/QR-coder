@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
+import { parseQRCode } from '../utils/qrCodeUtils';
 
 const QRCodeScanner = () => {
   const [hasPermission, setHasPermission] = useState(null);
@@ -16,8 +17,11 @@ const QRCodeScanner = () => {
 
   const handleBarCodeScanned = ({ type, data }) => {
     setScanned(true);
-    setScannedData(data);
-    // You can handle the scanned data here (e.g., navigate to a new screen)
+    const parsedData = parseQRCode(data);
+    if (parsedData) {
+      // Handle the parsed data (e.g., navigate to a new screen)
+      setScannedData(parsedData);
+    }
   };
 
   if (hasPermission === null) {

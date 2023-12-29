@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
+import { generateQRCode } from '../utils/qrCodeUtils';
 
 const QRCodeGenerator = () => {
   const [text, setText] = useState('');
 
-  const generateQRCode = () => {
-    // Logic for generating QR codes
-    // Assume a library like react-native-qrcode-svg for QR code generation
-    // (Make sure to install it using: npm install react-native-qrcode-svg)
+  const handleGenerateQRCode = () => {
+    if (text) {
+      // Generate QR code
+      const qrCodeDataUri = generateQRCode(text);
+      // Use qrCodeDataUri as needed (e.g., display it in an Image component)
+    }
   };
 
   return (
@@ -19,7 +22,7 @@ const QRCodeGenerator = () => {
         value={text}
         onChangeText={(value) => setText(value)}
       />
-      <Button title="Generate QR Code" onPress={generateQRCode} />
+      <Button title="Generate QR Code" onPress={handleGenerateQRCode} />
       {text ? <QRCode value={text} size={200} /> : null}
     </View>
   );
